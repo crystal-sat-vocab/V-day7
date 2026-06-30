@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SAT Day7 Ultimate V5 朗读暂停版</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,"Microsoft YaHei",sans-serif;background:#f4f6f8;color:#111;line-height:1.65}
+header{position:sticky;top:0;background:white;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.08);z-index:10}
+header h1{font-size:22px;margin:0 0 6px}header p{margin:0;color:#666;font-size:15px}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.nav a,.topbtn{border:0;border-radius:999px;padding:8px 12px;background:#111;color:white;text-decoration:none;font-size:15px;cursor:pointer}.gray{background:#555!important}
+.container{max-width:920px;margin:0 auto;padding:14px}.section-title{font-size:30px;background:#eaf0ff;padding:16px;border-radius:18px;margin:22px 0 14px}
+.card,.panel{background:#fff;border-radius:20px;padding:24px;margin:18px 0;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:10px}h2{font-size:34px;margin:0 0 16px}
+.sound{width:100%;display:block;font-size:28px;font-weight:650;padding:14px 12px;margin:6px 0 14px;background:#fff;border:2px solid #e2e2e2;border-radius:14px;cursor:pointer;text-align:left}
+.word{border-bottom:1px dotted #888}.ipa,.spell{font-size:23px;margin:10px 0;color:#222}.spell{color:#555}.sentence{font-size:24px;line-height:1.45}
+p,li{font-size:24px;margin:16px 0}.info{border-left:5px solid #ddd;padding-left:14px;margin-top:18px}.sub{margin-top:28px}
+.smallbtn{border:0;border-radius:999px;padding:9px 14px;font-size:16px;background:#111;color:white;cursor:pointer;white-space:nowrap}
+.teacher,.answerbox{margin-top:14px;border:1px solid #e5e5e5;border-radius:14px;padding:12px 14px;background:#fafafa}
+.teacher summary,.answerbox summary{font-size:22px;font-weight:700;cursor:pointer}.story{font-size:23px;white-space:pre-line}.audio-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.footer{text-align:center;color:#666;padding:28px 10px 40px}
+@media(max-width:600px){.container{padding:10px}.card,.panel{padding:20px 16px;border-radius:18px}h2{font-size:30px}.sound{font-size:24px;padding:13px 10px}.sentence{font-size:21px}p,li,.ipa,.spell{font-size:21px}header h1{font-size:20px}.section-title{font-size:25px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>SAT 高频1000词｜Day 7 Ultimate V5 朗读暂停版</h1>
+  <p>含 IPA 音标、拼读、老师讲解、隐藏答案练习、短文朗读暂停/继续/停止。</p>
+  <div class="nav"><a href="#vocab">词汇卡</a><a href="#reading">阅读短文</a><a href="#cloze">填空练习</a><button class="topbtn" onclick="playAll()">▶ 播放 Day7 全部</button></div>
+</header>
+<main class="container">
+<h1 id="vocab" class="section-title">Day 7 词汇卡｜175–203</h1>
+
+<article class="card">
+  <div class="topline"><h2>175. calibrate</h2><button class="smallbtn" onclick='playBoth("calibrate", "The engineer had to calibrate the instrument before the experiment began.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("calibrate",0.78)'>🔊 <span class="word">calibrate</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkæl.ə.breɪt/</p>
+  <p class="spell"><b>拼读：</b>KAL-uh-brayt</p>
+  <div class="info"><p><b>中文：</b>校准；使标准化</p><p><b>英文：</b>to set, adjust, or standardize</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The engineer had to calibrate the instrument before the experiment began.",0.82)'>🔊 The engineer had to calibrate the instrument before the experiment began.</button>
+  <p><b>SAT例句：</b><br>The engineer had to calibrate the instrument before the experiment began.</p>
+  <p><b>中文翻译：</b><br>实验开始前，工程师必须校准仪器。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>SAT中常用于科学、技术或抽象语境，表示把标准调准确。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>176. callous</h2><button class="smallbtn" onclick='playBoth("callous", "His callous response showed little concern for the injured child.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("callous",0.78)'>🔊 <span class="word">callous</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkæl.əs/</p>
+  <p class="spell"><b>拼读：</b>KAL-us</p>
+  <div class="info"><p><b>中文：</b>冷酷无情的；麻木的</p><p><b>英文：</b>harsh, cold, or unfeeling</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("His callous response showed little concern for the injured child.",0.82)'>🔊 His callous response showed little concern for the injured child.</button>
+  <p><b>SAT例句：</b><br>His callous response showed little concern for the injured child.</p>
+  <p><b>中文翻译：</b><br>他冷酷的回应显示出对受伤孩子毫不关心。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>重点不是“冷静”，而是缺乏同情心。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>177. calumny</h2><button class="smallbtn" onclick='playBoth("calumny", "The leader was hurt by the calumny spread by his enemies.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("calumny",0.78)'>🔊 <span class="word">calumny</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkæl.əm.ni/</p>
+  <p class="spell"><b>拼读：</b>KAL-um-nee</p>
+  <div class="info"><p><b>中文：</b>诽谤；中伤</p><p><b>英文：</b>false and damaging statements about someone</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The leader was hurt by the calumny spread by his enemies.",0.82)'>🔊 The leader was hurt by the calumny spread by his enemies.</button>
+  <p><b>SAT例句：</b><br>The leader was hurt by the calumny spread by his enemies.</p>
+  <p><b>中文翻译：</b><br>敌人散布的诽谤伤害了这位领导。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>和 slander, defamation 接近，常用于名誉受损。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>178. camaraderie</h2><button class="smallbtn" onclick='playBoth("camaraderie", "The long trip created a sense of camaraderie among the students.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("camaraderie",0.78)'>🔊 <span class="word">camaraderie</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˌkɑː.məˈrɑː.dər.i/</p>
+  <p class="spell"><b>拼读：</b>kah-muh-RAH-duh-ree</p>
+  <div class="info"><p><b>中文：</b>友情；同志情谊</p><p><b>英文：</b>brotherhood, trust, and friendly unity</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The long trip created a sense of camaraderie among the students.",0.82)'>🔊 The long trip created a sense of camaraderie among the students.</button>
+  <p><b>SAT例句：</b><br>The long trip created a sense of camaraderie among the students.</p>
+  <p><b>中文翻译：</b><br>这次长途旅行在学生之间建立了友谊。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>常表示团队成员之间的信任与亲密感。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>179. candor</h2><button class="smallbtn" onclick='playBoth("candor", "Her candor made the conversation difficult but necessary.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("candor",0.78)'>🔊 <span class="word">candor</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkæn.dɚ/</p>
+  <p class="spell"><b>拼读：</b>KAN-der</p>
+  <div class="info"><p><b>中文：</b>坦率；直率</p><p><b>英文：</b>honesty and frankness</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("Her candor made the conversation difficult but necessary.",0.82)'>🔊 Her candor made the conversation difficult but necessary.</button>
+  <p><b>SAT例句：</b><br>Her candor made the conversation difficult but necessary.</p>
+  <p><b>中文翻译：</b><br>她的坦率使这次谈话困难但必要。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>SAT常和 honesty, frankness 相关，偏正面。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>180. canny</h2><button class="smallbtn" onclick='playBoth("canny", "The canny investor avoided a risky deal.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("canny",0.78)'>🔊 <span class="word">canny</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkæn.i/</p>
+  <p class="spell"><b>拼读：</b>KAN-ee</p>
+  <div class="info"><p><b>中文：</b>精明的；谨慎的</p><p><b>英文：</b>shrewd, careful, and clever</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The canny investor avoided a risky deal.",0.82)'>🔊 The canny investor avoided a risky deal.</button>
+  <p><b>SAT例句：</b><br>The canny investor avoided a risky deal.</p>
+  <p><b>中文翻译：</b><br>这位精明的投资者避开了一笔高风险交易。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>canny 是精明谨慎；不要和 uncanny（诡异的）混淆。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>181. canvas</h2><button class="smallbtn" onclick='playBoth("canvas", "The artist stretched a new canvas before beginning the portrait.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("canvas",0.78)'>🔊 <span class="word">canvas</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkæn.vəs/</p>
+  <p class="spell"><b>拼读：</b>KAN-vus</p>
+  <div class="info"><p><b>中文：</b>画布；彻查；覆盖</p><p><b>英文：</b>cloth for painting; to inspect or cover</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The artist stretched a new canvas before beginning the portrait.",0.82)'>🔊 The artist stretched a new canvas before beginning the portrait.</button>
+  <p><b>SAT例句：</b><br>The artist stretched a new canvas before beginning the portrait.</p>
+  <p><b>中文翻译：</b><br>画家在开始肖像画之前铺开了一块新画布。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>一词多义：名词是画布；动词可表示彻底调查。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>182. capacious</h2><button class="smallbtn" onclick='playBoth("capacious", "The capacious hall could hold hundreds of guests.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("capacious",0.78)'>🔊 <span class="word">capacious</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/kəˈpeɪ.ʃəs/</p>
+  <p class="spell"><b>拼读：</b>kuh-PAY-shus</p>
+  <div class="info"><p><b>中文：</b>宽敞的；容量大的</p><p><b>英文：</b>very spacious or able to hold much</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The capacious hall could hold hundreds of guests.",0.82)'>🔊 The capacious hall could hold hundreds of guests.</button>
+  <p><b>SAT例句：</b><br>The capacious hall could hold hundreds of guests.</p>
+  <p><b>中文翻译：</b><br>这个宽敞的大厅可以容纳数百名客人。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>cap- 常和容量有关，记作 capacity 的亲戚词。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>183. capitulate</h2><button class="smallbtn" onclick='playBoth("capitulate", "After weeks of pressure, the company finally capitulated.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("capitulate",0.78)'>🔊 <span class="word">capitulate</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/kəˈpɪtʃ.ə.leɪt/</p>
+  <p class="spell"><b>拼读：</b>kuh-PICH-uh-layt</p>
+  <div class="info"><p><b>中文：</b>投降；屈服</p><p><b>英文：</b>to surrender or give in</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("After weeks of pressure, the company finally capitulated.",0.82)'>🔊 After weeks of pressure, the company finally capitulated.</button>
+  <p><b>SAT例句：</b><br>After weeks of pressure, the company finally capitulated.</p>
+  <p><b>中文翻译：</b><br>经过数周压力后，公司最终屈服了。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>语气较正式，常用于战争、谈判、争论。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>184. capricious</h2><button class="smallbtn" onclick='playBoth("capricious", "The capricious weather made it hard to plan the picnic.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("capricious",0.78)'>🔊 <span class="word">capricious</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/kəˈprɪʃ.əs/</p>
+  <p class="spell"><b>拼读：</b>kuh-PRISH-us</p>
+  <div class="info"><p><b>中文：</b>反复无常的；任性的</p><p><b>英文：</b>subject to whim; fickle</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The capricious weather made it hard to plan the picnic.",0.82)'>🔊 The capricious weather made it hard to plan the picnic.</button>
+  <p><b>SAT例句：</b><br>The capricious weather made it hard to plan the picnic.</p>
+  <p><b>中文翻译：</b><br>反复无常的天气让野餐计划很难安排。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>SAT高频，常形容人、天气、决定不稳定。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>185. captivate</h2><button class="smallbtn" onclick='playBoth("captivate", "The speaker’s story captivated the entire audience.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("captivate",0.78)'>🔊 <span class="word">captivate</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkæp.tə.veɪt/</p>
+  <p class="spell"><b>拼读：</b>KAP-tuh-vayt</p>
+  <div class="info"><p><b>中文：</b>吸引；迷住</p><p><b>英文：</b>to attract and hold attention</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The speaker’s story captivated the entire audience.",0.82)'>🔊 The speaker’s story captivated the entire audience.</button>
+  <p><b>SAT例句：</b><br>The speaker’s story captivated the entire audience.</p>
+  <p><b>中文翻译：</b><br>演讲者的故事吸引了全场听众。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>比 attract 更强，强调持续抓住注意力。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>186. carouse</h2><button class="smallbtn" onclick='playBoth("carouse", "The soldiers began to carouse after the victory.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("carouse",0.78)'>🔊 <span class="word">carouse</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/kəˈraʊz/</p>
+  <p class="spell"><b>拼读：</b>kuh-ROWZ</p>
+  <div class="info"><p><b>中文：</b>狂欢；宴饮作乐</p><p><b>英文：</b>to party or celebrate noisily</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The soldiers began to carouse after the victory.",0.82)'>🔊 The soldiers began to carouse after the victory.</button>
+  <p><b>SAT例句：</b><br>The soldiers began to carouse after the victory.</p>
+  <p><b>中文翻译：</b><br>胜利后，士兵们开始狂欢。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>常带 noisy celebration 的感觉。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>187. carp</h2><button class="smallbtn" onclick='playBoth("carp", "He tended to carp about small mistakes instead of praising progress.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("carp",0.78)'>🔊 <span class="word">carp</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/kɑːrp/</p>
+  <p class="spell"><b>拼读：</b>karp</p>
+  <div class="info"><p><b>中文：</b>吹毛求疵；唠叨抱怨</p><p><b>英文：</b>to complain or find fault constantly</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("He tended to carp about small mistakes instead of praising progress.",0.82)'>🔊 He tended to carp about small mistakes instead of praising progress.</button>
+  <p><b>SAT例句：</b><br>He tended to carp about small mistakes instead of praising progress.</p>
+  <p><b>中文翻译：</b><br>他总是对小错误吹毛求疵，而不是表扬进步。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>不是普通 complain，而是反复挑小毛病。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>188. catalog</h2><button class="smallbtn" onclick='playBoth("catalog", "The librarian helped catalog the new books.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("catalog",0.78)'>🔊 <span class="word">catalog</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkæt̬.əl.ɑːɡ/</p>
+  <p class="spell"><b>拼读：</b>KAT-uh-lawg</p>
+  <div class="info"><p><b>中文：</b>目录；编目</p><p><b>英文：</b>a list; to list or record</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The librarian helped catalog the new books.",0.82)'>🔊 The librarian helped catalog the new books.</button>
+  <p><b>SAT例句：</b><br>The librarian helped catalog the new books.</p>
+  <p><b>中文翻译：</b><br>图书管理员帮助给新书编目。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>可作名词或动词，表示清单或列入清单。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>189. catalyze</h2><button class="smallbtn" onclick='playBoth("catalyze", "The invention helped catalyze rapid growth in the industry.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("catalyze",0.78)'>🔊 <span class="word">catalyze</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkæt̬.əl.aɪz/</p>
+  <p class="spell"><b>拼读：</b>KAT-uh-lyze</p>
+  <div class="info"><p><b>中文：</b>促成；激发</p><p><b>英文：</b>to cause or inspire a change</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The invention helped catalyze rapid growth in the industry.",0.82)'>🔊 The invention helped catalyze rapid growth in the industry.</button>
+  <p><b>SAT例句：</b><br>The invention helped catalyze rapid growth in the industry.</p>
+  <p><b>中文翻译：</b><br>这项发明促成了该行业的快速发展。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>来自 catalyst 催化剂，常用于促成变化。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>190. caucus</h2><button class="smallbtn" onclick='playBoth("caucus", "The senator attended a caucus before the vote.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("caucus",0.78)'>🔊 <span class="word">caucus</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkɑː.kəs/</p>
+  <p class="spell"><b>拼读：</b>KAW-kus</p>
+  <div class="info"><p><b>中文：</b>核心会议；党团会议</p><p><b>英文：</b>a meeting of people working toward the same political goal</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The senator attended a caucus before the vote.",0.82)'>🔊 The senator attended a caucus before the vote.</button>
+  <p><b>SAT例句：</b><br>The senator attended a caucus before the vote.</p>
+  <p><b>中文翻译：</b><br>投票前，参议员参加了一次党团会议。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>多见政治语境，注意和 congress 不同。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>191. caustic</h2><button class="smallbtn" onclick='playBoth("caustic", "Her caustic remark embarrassed the entire committee.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("caustic",0.78)'>🔊 <span class="word">caustic</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkɑː.stɪk/</p>
+  <p class="spell"><b>拼读：</b>KAW-stik</p>
+  <div class="info"><p><b>中文：</b>刻薄的；尖刻的；腐蚀性的</p><p><b>英文：</b>bitter, biting, or acidic</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("Her caustic remark embarrassed the entire committee.",0.82)'>🔊 Her caustic remark embarrassed the entire committee.</button>
+  <p><b>SAT例句：</b><br>Her caustic remark embarrassed the entire committee.</p>
+  <p><b>中文翻译：</b><br>她尖刻的话让整个委员会都感到尴尬。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>可指化学腐蚀性，也可指语言刻薄。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>192. cavort</h2><button class="smallbtn" onclick='playBoth("cavort", "The children began to cavort in the park after school.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("cavort",0.78)'>🔊 <span class="word">cavort</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/kəˈvɔːrt/</p>
+  <p class="spell"><b>拼读：</b>kuh-VORT</p>
+  <div class="info"><p><b>中文：</b>欢跳；嬉闹</p><p><b>英文：</b>to leap about or behave boisterously</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The children began to cavort in the park after school.",0.82)'>🔊 The children began to cavort in the park after school.</button>
+  <p><b>SAT例句：</b><br>The children began to cavort in the park after school.</p>
+  <p><b>中文翻译：</b><br>放学后，孩子们开始在公园里欢跳嬉闹。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>通常带活泼甚至有点失控的动作感。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>193. censure</h2><button class="smallbtn" onclick='playBoth("censure", "The committee voted to censure the official for misconduct.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("censure",0.78)'>🔊 <span class="word">censure</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈsen.ʃɚ/</p>
+  <p class="spell"><b>拼读：</b>SEN-shur</p>
+  <div class="info"><p><b>中文：</b>严厉批评；正式谴责</p><p><b>英文：</b>harsh criticism; to rebuke formally</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The committee voted to censure the official for misconduct.",0.82)'>🔊 The committee voted to censure the official for misconduct.</button>
+  <p><b>SAT例句：</b><br>The committee voted to censure the official for misconduct.</p>
+  <p><b>中文翻译：</b><br>委员会投票正式谴责这名官员的不当行为。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>比 criticize 更正式、更强烈。常见于政治或组织纪律。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>194. cerebral</h2><button class="smallbtn" onclick='playBoth("cerebral", "The film is more cerebral than emotional.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("cerebral",0.78)'>🔊 <span class="word">cerebral</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/səˈriː.brəl/</p>
+  <p class="spell"><b>拼读：</b>suh-REE-brul</p>
+  <div class="info"><p><b>中文：</b>理智的；智力上的</p><p><b>英文：</b>related to the intellect</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The film is more cerebral than emotional.",0.82)'>🔊 The film is more cerebral than emotional.</button>
+  <p><b>SAT例句：</b><br>The film is more cerebral than emotional.</p>
+  <p><b>中文翻译：</b><br>这部电影更偏理性，而不是情感化。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>SAT中常表示 intellectual, thoughtful。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>195. chaos</h2><button class="smallbtn" onclick='playBoth("chaos", "The sudden announcement caused chaos in the classroom.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("chaos",0.78)'>🔊 <span class="word">chaos</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkeɪ.ɑːs/</p>
+  <p class="spell"><b>拼读：</b>KAY-ahs</p>
+  <div class="info"><p><b>中文：</b>混乱；无秩序</p><p><b>英文：</b>absolute disorder</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The sudden announcement caused chaos in the classroom.",0.82)'>🔊 The sudden announcement caused chaos in the classroom.</button>
+  <p><b>SAT例句：</b><br>The sudden announcement caused chaos in the classroom.</p>
+  <p><b>中文翻译：</b><br>突如其来的通知在教室里造成了混乱。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>常考反义：order, structure。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>196. chastise</h2><button class="smallbtn" onclick='playBoth("chastise", "The editor chastised the writer for ignoring the facts.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("chastise",0.78)'>🔊 <span class="word">chastise</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/tʃæsˈtaɪz/</p>
+  <p class="spell"><b>拼读：</b>chas-TYZE</p>
+  <div class="info"><p><b>中文：</b>严厉斥责</p><p><b>英文：</b>to criticize or punish severely</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The editor chastised the writer for ignoring the facts.",0.82)'>🔊 The editor chastised the writer for ignoring the facts.</button>
+  <p><b>SAT例句：</b><br>The editor chastised the writer for ignoring the facts.</p>
+  <p><b>中文翻译：</b><br>编辑严厉斥责作者忽视事实。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>比 scold 更正式、更严厉。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>197. cherish</h2><button class="smallbtn" onclick='playBoth("cherish", "She cherished the letters from her grandmother.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("cherish",0.78)'>🔊 <span class="word">cherish</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈtʃer.ɪʃ/</p>
+  <p class="spell"><b>拼读：</b>CHAIR-ish</p>
+  <div class="info"><p><b>中文：</b>珍爱；珍视</p><p><b>英文：</b>to value deeply or show affection for</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("She cherished the letters from her grandmother.",0.82)'>🔊 She cherished the letters from her grandmother.</button>
+  <p><b>SAT例句：</b><br>She cherished the letters from her grandmother.</p>
+  <p><b>中文翻译：</b><br>她珍视祖母写来的信。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>常见正面情感词，表示深深珍惜。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>198. chide</h2><button class="smallbtn" onclick='playBoth("chide", "The teacher gently chided the student for being late.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("chide",0.78)'>🔊 <span class="word">chide</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/tʃaɪd/</p>
+  <p class="spell"><b>拼读：</b>chyde</p>
+  <div class="info"><p><b>中文：</b>责备；斥责</p><p><b>英文：</b>to voice disapproval</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The teacher gently chided the student for being late.",0.82)'>🔊 The teacher gently chided the student for being late.</button>
+  <p><b>SAT例句：</b><br>The teacher gently chided the student for being late.</p>
+  <p><b>中文翻译：</b><br>老师温和地责备了迟到的学生。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>比 chastise 轻，常是轻微责备。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>199. choreography</h2><button class="smallbtn" onclick='playBoth("choreography", "The choreography made the performance visually stunning.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("choreography",0.78)'>🔊 <span class="word">choreography</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˌkɔːr.iˈɑː.ɡrə.fi/</p>
+  <p class="spell"><b>拼读：</b>kor-ee-AH-gruh-fee</p>
+  <div class="info"><p><b>中文：</b>舞蹈编排</p><p><b>英文：</b>the arrangement of dances</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The choreography made the performance visually stunning.",0.82)'>🔊 The choreography made the performance visually stunning.</button>
+  <p><b>SAT例句：</b><br>The choreography made the performance visually stunning.</p>
+  <p><b>中文翻译：</b><br>舞蹈编排使演出在视觉上非常惊艳。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>常见于艺术类文章，和 dance, movement 相关。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>200. chronicle</h2><button class="smallbtn" onclick='playBoth("chronicle", "The book chronicles the city’s growth over two centuries.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("chronicle",0.78)'>🔊 <span class="word">chronicle</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˈkrɑː.nɪ.kəl/</p>
+  <p class="spell"><b>拼读：</b>KRAH-ni-kul</p>
+  <div class="info"><p><b>中文：</b>编年史；记录</p><p><b>英文：</b>a written history; to record</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The book chronicles the city’s growth over two centuries.",0.82)'>🔊 The book chronicles the city’s growth over two centuries.</button>
+  <p><b>SAT例句：</b><br>The book chronicles the city’s growth over two centuries.</p>
+  <p><b>中文翻译：</b><br>这本书记录了这座城市两百年来的发展。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>chron- 表示 time，看到 chron 要想到时间顺序。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>201. chronological</h2><button class="smallbtn" onclick='playBoth("chronological", "The events were presented in chronological order.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("chronological",0.78)'>🔊 <span class="word">chronological</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˌkrɑː.nəˈlɑː.dʒɪ.kəl/</p>
+  <p class="spell"><b>拼读：</b>krah-nuh-LAH-jih-kul</p>
+  <div class="info"><p><b>中文：</b>按时间顺序排列的</p><p><b>英文：</b>arranged in order of time</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The events were presented in chronological order.",0.82)'>🔊 The events were presented in chronological order.</button>
+  <p><b>SAT例句：</b><br>The events were presented in chronological order.</p>
+  <p><b>中文翻译：</b><br>这些事件是按时间顺序呈现的。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>SAT阅读中常用于文章结构题。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>202. circuitous</h2><button class="smallbtn" onclick='playBoth("circuitous", "The hikers took a circuitous route through the forest.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("circuitous",0.78)'>🔊 <span class="word">circuitous</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/sɚˈkjuː.ə.t̬əs/</p>
+  <p class="spell"><b>拼读：</b>ser-KYOO-uh-tus</p>
+  <div class="info"><p><b>中文：</b>迂回的；绕圈的</p><p><b>英文：</b>roundabout, not direct</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The hikers took a circuitous route through the forest.",0.82)'>🔊 The hikers took a circuitous route through the forest.</button>
+  <p><b>SAT例句：</b><br>The hikers took a circuitous route through the forest.</p>
+  <p><b>中文翻译：</b><br>徒步者们走了一条穿过森林的迂回路线。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>可指道路绕，也可指说话、论证绕。</p></details>
+</article>
+
+<article class="card">
+  <div class="topline"><h2>203. circumlocution</h2><button class="smallbtn" onclick='playBoth("circumlocution", "The politician used circumlocution to avoid answering the question.")'>▶ 连读</button></div>
+  <button class="sound" onclick='speak("circumlocution",0.78)'>🔊 <span class="word">circumlocution</span></button>
+  <p class="ipa"><b>IPA 音标：</b>/ˌsɝː.kəm.loʊˈkjuː.ʃən/</p>
+  <p class="spell"><b>拼读：</b>ser-kum-loh-KYOO-shun</p>
+  <div class="info"><p><b>中文：</b>迂回累赘的说法</p><p><b>英文：</b>indirect and wordy language</p></div>
+  <p class="sub"><b>例句发音：</b></p>
+  <button class="sound sentence" onclick='speak("The politician used circumlocution to avoid answering the question.",0.82)'>🔊 The politician used circumlocution to avoid answering the question.</button>
+  <p><b>SAT例句：</b><br>The politician used circumlocution to avoid answering the question.</p>
+  <p><b>中文翻译：</b><br>这位政治家用迂回累赘的话来回避问题。</p>
+  <details class="teacher"><summary>💡 SAT重点词汇老师讲解</summary><p>circum- 表示 around，locution 和说话有关，即绕着说。</p></details>
+</article>
+
+<h1 id="reading" class="section-title">Day 7 SAT Reading｜A Play in Chaos</h1>
+<section class="panel">
+  <div class="audio-controls"><button class="topbtn" onclick="playStory()">🔊 朗读短文</button><button class="topbtn gray" onclick="pauseSpeech()">⏸ 暂停</button><button class="topbtn gray" onclick="resumeSpeech()">▶ 继续</button><button class="topbtn gray" onclick="stopSpeech()">⏹ 停止</button></div>
+  <p class="story">At a school arts festival, the theater club tried to present a play about a legendary bard. Before the show, the director had to calibrate the lights, catalog the props, and check the canvas backdrop. The room was capacious, but the mood quickly turned to chaos when a capricious actor threatened to capitulate and quit.
+
+The student leader, though usually bashful, showed remarkable candor. She did not chide the actor harshly or chastise him in public. Instead, she used a calm cadence to explain why the performance mattered. Her words helped catalyze a change in the group.
+
+A callous critic had written a caustic review before even seeing the play, but the cast refused to be discouraged. Their camaraderie grew stronger. The choreography captivated the audience, and even the critic stopped trying to carp about minor flaws. In the end, the show became a cherished chronicle of how teamwork can turn disorder into art.</p>
+</section>
+<section class="panel"><h2>Main Idea 主旨句题</h2><p><b>Q.</b> Which sentence best states the main idea of the passage?</p><details class="answerbox"><summary>点击显示答案</summary><p>A calm and honest leader helps a group overcome chaos and create a successful artistic performance.</p></details></section>
+<section class="panel"><h2>Reading Questions｜答案隐藏版</h2><ol><li><b>Q1.</b> What problem does the theater club face before the show?<details class='answerbox'><summary>点击显示答案</summary><p>The club falls into chaos when an actor threatens to quit.</p></details></li><li><b>Q2.</b> How does the student leader solve the problem?<details class='answerbox'><summary>点击显示答案</summary><p>She speaks with candor and calmness instead of publicly criticizing the actor.</p></details></li><li><b>Q3.</b> Which word in the story means “to cause or inspire a change”?<details class='answerbox'><summary>点击显示答案</summary><p>catalyze.</p></details></li><li><b>Q4.</b> Why does the critic’s review seem unfair?<details class='answerbox'><summary>点击显示答案</summary><p>Because the critic wrote a caustic review before seeing the play.</p></details></li><li><b>Q5.</b> What is the main lesson of the story?<details class='answerbox'><summary>点击显示答案</summary><p>Teamwork and calm leadership can turn disorder into a meaningful success.</p></details></li></ol></section>
+<h1 id="cloze" class="section-title">Vocabulary Cloze｜单词填空练习</h1>
+<section class="panel"><p>请根据上下文填入 Day7 单词。答案默认隐藏，完成后再点击查看。</p><ol><li>The technician had to ________ the lights before the show.<details class='answerbox'><summary>点击显示答案</summary><p>calibrate</p></details></li><li>The actor’s ________ mood made rehearsals difficult.<details class='answerbox'><summary>点击显示答案</summary><p>capricious</p></details></li><li>The backstage area fell into complete ________.<details class='answerbox'><summary>点击显示答案</summary><p>chaos</p></details></li><li>The leader spoke with ________ instead of hiding the truth.<details class='answerbox'><summary>点击显示答案</summary><p>candor</p></details></li><li>Her calm words helped ________ a change in the team.<details class='answerbox'><summary>点击显示答案</summary><p>catalyze</p></details></li><li>The critic’s ________ comments were unnecessarily harsh.<details class='answerbox'><summary>点击显示答案</summary><p>caustic</p></details></li><li>The dance ________ impressed the audience.<details class='answerbox'><summary>点击显示答案</summary><p>choreography</p></details></li><li>The students built strong ________ through weeks of practice.<details class='answerbox'><summary>点击显示答案</summary><p>camaraderie</p></details></li><li>The writer used ________ to avoid giving a direct answer.<details class='answerbox'><summary>点击显示答案</summary><p>circumlocution</p></details></li><li>The events were recorded in ________ order.<details class='answerbox'><summary>点击显示答案</summary><p>chronological</p></details></li></ol></section>
+<div class="footer">End of Day 7 · Words 175–203</div>
+</main>
+<script>
+const storyText="At a school arts festival, the theater club tried to present a play about a legendary bard. Before the show, the director had to calibrate the lights, catalog the props, and check the canvas backdrop. The room was capacious, but the mood quickly turned to chaos when a capricious actor threatened to capitulate and quit.\n\nThe student leader, though usually bashful, showed remarkable candor. She did not chide the actor harshly or chastise him in public. Instead, she used a calm cadence to explain why the performance mattered. Her words helped catalyze a change in the group.\n\nA callous critic had written a caustic review before even seeing the play, but the cast refused to be discouraged. Their camaraderie grew stronger. The choreography captivated the audience, and even the critic stopped trying to carp about minor flaws. In the end, the show became a cherished chronicle of how teamwork can turn disorder into art.";
+const allItems=[{"word": "calibrate", "sentence": "The engineer had to calibrate the instrument before the experiment began."}, {"word": "callous", "sentence": "His callous response showed little concern for the injured child."}, {"word": "calumny", "sentence": "The leader was hurt by the calumny spread by his enemies."}, {"word": "camaraderie", "sentence": "The long trip created a sense of camaraderie among the students."}, {"word": "candor", "sentence": "Her candor made the conversation difficult but necessary."}, {"word": "canny", "sentence": "The canny investor avoided a risky deal."}, {"word": "canvas", "sentence": "The artist stretched a new canvas before beginning the portrait."}, {"word": "capacious", "sentence": "The capacious hall could hold hundreds of guests."}, {"word": "capitulate", "sentence": "After weeks of pressure, the company finally capitulated."}, {"word": "capricious", "sentence": "The capricious weather made it hard to plan the picnic."}, {"word": "captivate", "sentence": "The speaker’s story captivated the entire audience."}, {"word": "carouse", "sentence": "The soldiers began to carouse after the victory."}, {"word": "carp", "sentence": "He tended to carp about small mistakes instead of praising progress."}, {"word": "catalog", "sentence": "The librarian helped catalog the new books."}, {"word": "catalyze", "sentence": "The invention helped catalyze rapid growth in the industry."}, {"word": "caucus", "sentence": "The senator attended a caucus before the vote."}, {"word": "caustic", "sentence": "Her caustic remark embarrassed the entire committee."}, {"word": "cavort", "sentence": "The children began to cavort in the park after school."}, {"word": "censure", "sentence": "The committee voted to censure the official for misconduct."}, {"word": "cerebral", "sentence": "The film is more cerebral than emotional."}, {"word": "chaos", "sentence": "The sudden announcement caused chaos in the classroom."}, {"word": "chastise", "sentence": "The editor chastised the writer for ignoring the facts."}, {"word": "cherish", "sentence": "She cherished the letters from her grandmother."}, {"word": "chide", "sentence": "The teacher gently chided the student for being late."}, {"word": "choreography", "sentence": "The choreography made the performance visually stunning."}, {"word": "chronicle", "sentence": "The book chronicles the city’s growth over two centuries."}, {"word": "chronological", "sentence": "The events were presented in chronological order."}, {"word": "circuitous", "sentence": "The hikers took a circuitous route through the forest."}, {"word": "circumlocution", "sentence": "The politician used circumlocution to avoid answering the question."}];
+let selectedVoice=null;
+function loadVoice(){const voices=window.speechSynthesis.getVoices();selectedVoice=voices.find(v=>v.lang==='en-US'&&/Samantha|Ava|Allison|Susan|Jenny|Aria|Google US English|Microsoft/i.test(v.name))||voices.find(v=>v.lang==='en-US')||voices.find(v=>v.lang&&v.lang.startsWith('en'))||null;}
+if('speechSynthesis'in window){loadVoice();window.speechSynthesis.onvoiceschanged=loadVoice;}
+function makeUtterance(text,rate=0.82){const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=rate;u.pitch=1;u.volume=1;if(selectedVoice)u.voice=selectedVoice;return u;}
+function speak(text,rate=0.82){if(!('speechSynthesis'in window)){alert('这个浏览器不支持语音朗读。请用 Safari、Chrome 或 Edge 打开。');return;}window.speechSynthesis.cancel();loadVoice();window.speechSynthesis.speak(makeUtterance(text,rate));}
+function playBoth(word,sentence){window.speechSynthesis.cancel();loadVoice();const u1=makeUtterance(word,.76);const u2=makeUtterance(sentence,.82);u1.onend=()=>setTimeout(()=>window.speechSynthesis.speak(u2),350);window.speechSynthesis.speak(u1);}
+function playAll(){window.speechSynthesis.cancel();loadVoice();let i=0;function next(){if(i>=allItems.length)return;const item=allItems[i++];const u1=makeUtterance(item.word,.76);const u2=makeUtterance(item.sentence,.82);u1.onend=()=>setTimeout(()=>window.speechSynthesis.speak(u2),300);u2.onend=()=>setTimeout(next,500);window.speechSynthesis.speak(u1);}next();}
+function playStory(){window.speechSynthesis.cancel();loadVoice();window.speechSynthesis.speak(makeUtterance(storyText,0.82));}
+function pauseSpeech(){if('speechSynthesis'in window&&window.speechSynthesis.speaking)window.speechSynthesis.pause();}
+function resumeSpeech(){if('speechSynthesis'in window&&window.speechSynthesis.paused)window.speechSynthesis.resume();}
+function stopSpeech(){if('speechSynthesis'in window)window.speechSynthesis.cancel();}
+</script>
+</body></html>
