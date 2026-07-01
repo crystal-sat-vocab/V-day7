@@ -23,6 +23,20 @@ for (const id of ['resumeBtn','resumeReading']) document.getElementById(id)?.add
 for (const id of ['stopBtn','stopReading']) document.getElementById(id)?.addEventListener('click',()=>synth.cancel());
 document.getElementById('printBtn')?.addEventListener('click',()=>window.print());
 
+function setupSentenceControls(){
+  document.querySelectorAll('.example-row').forEach((row, i)=>{
+    if(row.querySelector('.sentence-controls')) return;
+    const group=document.createElement('div');
+    group.className='sentence-controls';
+    group.innerHTML='<button type="button" class="small sentence-pause">⏸ 暂停</button><button type="button" class="small sentence-resume">▶ 继续</button><button type="button" class="small sentence-stop">■ 停止</button>';
+    row.appendChild(group);
+    group.querySelector('.sentence-pause').addEventListener('click',()=>synth.pause());
+    group.querySelector('.sentence-resume').addEventListener('click',()=>synth.resume());
+    group.querySelector('.sentence-stop').addEventListener('click',()=>synth.cancel());
+  });
+}
+
+
 const V7_KEY = 'SAT_DAY7_V8_MISTAKE_REVIEW_STATE';
 const QUIZ_ANSWERS = ['B', 'A', 'B', 'A', 'B', 'C', 'A', 'B'];
 const FILL_ANSWERS = ['cogent', 'coalesce', 'clemency', 'cliché', 'censure', 'composed', 'comply', 'charismatic', 'coercion', 'capricious'];
@@ -64,7 +78,7 @@ function addMistake(word, source, userAnswer){
   savePracticeState(practiceState);
   renderMistakes();
 }
-function removeMistake(word){ if(practiceState.mistakes){ delete practiceState.mistakes[word]; savePracticeState(practiceState); renderMistakes(); } }
+function removeMistake(word){ if(practiceState.mistakes){ delete practiceState.mistakes[word]; savePracticeState(practiceState); renderMistakes(); initSelfReview(); } }
 function sourceLabel(s){ return {quiz:'小测选择题',fill:'填空题',reading:'阅读找词'}[s]||s; }
 function getActiveMistakes(){ return Object.values(practiceState.mistakes||{}).filter(m=>!m.mastered).sort((a,b)=>(b.count||0)-(a.count||0)); }
 function renderMistakes(){
@@ -91,12 +105,72 @@ function startMistakeReview(){ const mistakes=getActiveMistakes(); if(!mistakes.
 function exitMistakeReview(){ document.body.classList.remove('review-active'); }
 function getQuizCorrectWord(qIndex){ const q=document.querySelectorAll('#quiz .question')[qIndex]; const letter=QUIZ_ANSWERS[qIndex]; const btn=q?.querySelector(`.choice-btn[data-choice="${letter}"]`); return btn?.innerText?.replace(/^[A-D]\s*/, '').trim().split(/\s+/)[0] || ''; }
 
-function setupQuizClickable() { document.querySelectorAll('#quiz .question').forEach((q,qIndex)=>{ const ol=q.querySelector('ol'); if(!ol) return; ol.classList.add('choice-list'); [...ol.querySelectorAll('li')].forEach((li,optIndex)=>{ const letter=String.fromCharCode(65+optIndex); const text=li.textContent.trim().replace(/^([A-D]\.\s*)/,''); li.innerHTML=''; const btn=document.createElement('button'); btn.type='button'; btn.className='choice-btn'; btn.dataset.question=String(qIndex); btn.dataset.choice=letter; btn.innerHTML=`<span class="choice-letter">${letter}</span><span>${text}</span>`; btn.addEventListener('click',()=>{ practiceState.quiz[qIndex]=letter; if(letter!==QUIZ_ANSWERS[qIndex]) addMistake(getQuizCorrectWord(qIndex),'quiz',letter); savePracticeState(practiceState); renderQuizState(qIndex); renderMistakes(); }); li.appendChild(btn); }); const feedback=document.createElement('div'); feedback.className='practice-feedback'; feedback.id=`quiz-feedback-${qIndex}`; q.appendChild(feedback); renderQuizState(qIndex); }); }
+function setupQuizClickable() { document.querySelectorAll('#quiz .question').forEach((q,qIndex)=>{ const ol=q.querySelector('ol'); if(!ol) return; ol.classList.add('choice-list'); [...ol.querySelectorAll('li')].forEach((li,optIndex)=>{ const letter=String.fromCharCode(65+optIndex); const text=li.textContent.trim().replace(/^([A-D]\.\s*)/,''); li.innerHTML=''; const btn=document.createElement('button'); btn.type='button'; btn.className='choice-btn'; btn.dataset.question=String(qIndex); btn.dataset.choice=letter; btn.innerHTML=`<span class="choice-letter">${letter}</span><span>${text}</span>`; btn.addEventListener('click',()=>{ practiceState.quiz[qIndex]=letter; if(letter!==QUIZ_ANSWERS[qIndex]) addMistake(getQuizCorrectWord(qIndex),'quiz',letter); savePracticeState(practiceState); renderQuizState(qIndex); renderMistakes(); initSelfReview(); }); li.appendChild(btn); }); const feedback=document.createElement('div'); feedback.className='practice-feedback'; feedback.id=`quiz-feedback-${qIndex}`; q.appendChild(feedback); renderQuizState(qIndex); }); }
 function renderQuizState(qIndex) { const q=document.querySelectorAll('#quiz .question')[qIndex]; if(!q) return; const selected=practiceState.quiz[qIndex]; const correct=QUIZ_ANSWERS[qIndex]; q.querySelectorAll('.choice-btn').forEach(btn=>{ btn.classList.remove('selected','correct','wrong'); if(btn.dataset.choice===selected) { btn.classList.add('selected'); btn.classList.add(selected===correct?'correct':'wrong'); } }); const fb=document.getElementById(`quiz-feedback-${qIndex}`); if(fb) { if(!selected) fb.textContent=''; else fb.textContent= selected===correct?'✓ 回答正确，已保存。':'✗ 已保存。可以再选一次，或点“显示答案”核对。'; fb.className='practice-feedback '+(selected?(selected===correct?'ok':'no'):''); } }
 function addInputPractice(sectionSelector, answers, bucketName, placeholder) { document.querySelectorAll(`${sectionSelector} .question`).forEach((q,i)=>{ if(q.querySelector('.practice-input-row')) return; const row=document.createElement('div'); row.className='practice-input-row'; row.innerHTML=`<input class="practice-input" type="text" autocomplete="off" placeholder="${placeholder}" data-bucket="${bucketName}" data-index="${i}"><button type="button" class="check-one">检查</button><span class="practice-feedback"></span>`; const details=q.querySelector('details.answer'); q.insertBefore(row, details||null); const input=row.querySelector('input'); const btn=row.querySelector('button'); const fb=row.querySelector('.practice-feedback'); input.value=practiceState[bucketName]?.[i]||''; function saveAndMaybeCheck(showFeedback=false) { practiceState[bucketName][i]=input.value; savePracticeState(practiceState); if(showFeedback) { const user=normalizeAnswer(input.value); const correct=normalizeAnswer(answers[i]); const ok=user===correct; if(showFeedback && user && !ok) addMistake(answers[i], bucketName, input.value); input.classList.toggle('correct', ok&&!!user); input.classList.toggle('wrong', !ok&&!!user); fb.textContent=!user?'请输入答案。':(ok?'✓ 回答正确，已保存。':'✗ 已保存。已自动加入错题本，可修改后再检查，或点“显示答案”核对。'); fb.className='practice-feedback '+(ok?'ok':'no'); } else { input.classList.remove('correct','wrong'); fb.textContent=input.value?'已保存':''; fb.className='practice-feedback'; } } input.addEventListener('input',()=>saveAndMaybeCheck(false)); input.addEventListener('keydown',e=>{ if(e.key==='Enter') saveAndMaybeCheck(true); }); btn.addEventListener('click',()=>saveAndMaybeCheck(true)); }); }
 function setupDetailsSave() { document.querySelectorAll('details.answer').forEach((d,i)=>{ const key=`answer-${i}`; if(practiceState.details&&practiceState.details[key]) d.open=true; d.addEventListener('toggle',()=>{ practiceState.details=practiceState.details||{}; practiceState.details[key]=d.open; savePracticeState(practiceState); }); }); }
 function checkAllPractice() { Object.keys(practiceState.quiz||{}).forEach(k=>renderQuizState(Number(k))); document.querySelectorAll('.practice-input-row .check-one').forEach(btn=>btn.click()); }
 function resetPractice() { const ok=confirm('确定要清除 Day7 本机做题记录吗？选择题、输入内容、颜色和已展开答案都会恢复为空白。'); if(!ok) return; localStorage.removeItem(V7_KEY); practiceState=defaultPracticeState(); document.querySelectorAll('.choice-btn').forEach(btn=>btn.classList.remove('selected','correct','wrong')); document.querySelectorAll('.practice-input').forEach(input=>{input.value=''; input.classList.remove('correct','wrong');}); document.querySelectorAll('.practice-feedback').forEach(fb=>{fb.textContent=''; fb.className='practice-feedback';}); document.querySelectorAll('details.answer').forEach(d=>d.open=false); const mode=document.getElementById('practiceMode'); if(mode){mode.value='all'; applyPracticeMode('all');} const status=document.getElementById('saveStatus'); if(status) status.textContent='记录已清除，可以重新开始。'; }
 function applyPracticeMode(mode) { if(mode!=='review') exitMistakeReview(); const map={words:'#words', quiz:'#quiz', fill:'#fill', reading:'#reading', review:'#words'}; ['#words','#quiz','#fill','#reading'].forEach(sel=>{ const el=document.querySelector(sel); if(!el) return; if(mode==='all'||map[mode]===sel) el.classList.remove('hidden-section'); else el.classList.add('hidden-section'); }); if(mode!=='all'&&map[mode]) document.querySelector(map[mode])?.scrollIntoView({behavior:'smooth',block:'start'}); }
-function initV8Practice() { setupQuizClickable(); addInputPractice('#fill',FILL_ANSWERS,'fill','输入填空答案'); addInputPractice('#reading',READING_ANSWERS,'reading','输入阅读找词答案'); setupDetailsSave(); document.getElementById('resetPractice')?.addEventListener('click',resetPractice); document.getElementById('checkAllBtn')?.addEventListener('click',checkAllPractice); document.getElementById('practiceMode')?.addEventListener('change',e=>{ if(e.target.value==='review') startMistakeReview(); else applyPracticeMode(e.target.value); }); document.getElementById('refreshMistakes')?.addEventListener('click',renderMistakes); document.getElementById('readMistakeWords')?.addEventListener('click',readMistakeWords); document.getElementById('readMistakeExamples')?.addEventListener('click',readMistakeExamples); document.getElementById('clearMistakes')?.addEventListener('click',clearMistakes); document.getElementById('reviewMistakesBtn')?.addEventListener('click',startMistakeReview); renderMistakes(); }
+
+
+const REVIEW_KEY = 'SAT_DAY7_V8_SELF_REVIEW_STATE';
+function loadSelfReview(){
+  try{return JSON.parse(localStorage.getItem(REVIEW_KEY))||{};}catch(e){return {};}
+}
+function saveSelfReview(){
+  const data={
+    unknown:document.getElementById('reviewUnknown')?.value||'',
+    wrongType:document.getElementById('reviewWrongType')?.value||'',
+    reason:document.getElementById('reviewWrongReason')?.value||'',
+    twice:document.getElementById('reviewTwice')?.value||'',
+    checkWords:!!document.getElementById('reviewCheckWords')?.checked,
+    checkExamples:!!document.getElementById('reviewCheckExamples')?.checked,
+    checkRedo:!!document.getElementById('reviewCheckRedo')?.checked
+  };
+  localStorage.setItem(REVIEW_KEY,JSON.stringify(data));
+  const status=document.getElementById('reviewStatus');
+  if(status) status.textContent='复盘已保存到本机 '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+}
+function restoreSelfReview(){
+  const data=loadSelfReview();
+  const set=(id,val)=>{const el=document.getElementById(id); if(el) el.value=val||'';};
+  set('reviewUnknown',data.unknown); set('reviewWrongType',data.wrongType); set('reviewWrongReason',data.reason); set('reviewTwice',data.twice);
+  const cw=document.getElementById('reviewCheckWords'); if(cw) cw.checked=!!data.checkWords;
+  const ce=document.getElementById('reviewCheckExamples'); if(ce) ce.checked=!!data.checkExamples;
+  const cr=document.getElementById('reviewCheckRedo'); if(cr) cr.checked=!!data.checkRedo;
+}
+function autoFillSelfReview(){
+  const mistakes=getActiveMistakes().sort((a,b)=>(b.count||0)-(a.count||0));
+  if(!mistakes.length){ alert('目前还没有错题词。先做题并检查，答错的词会自动进入错题本。'); return; }
+  const top=mistakes.slice(0,5).map(m=>m.word);
+  const twice=mistakes.filter(m=>(m.count||0)>=2).map(m=>m.word);
+  const sourceCount={quiz:0,fill:0,reading:0};
+  mistakes.forEach(m=>(m.sources||[]).forEach(s=>{sourceCount[s]=(sourceCount[s]||0)+1;}));
+  const maxType=Object.entries(sourceCount).sort((a,b)=>b[1]-a[1])[0]?.[0]||'';
+  const typeMap={quiz:'小测选择题',fill:'填空题',reading:'阅读找词题'};
+  document.getElementById('reviewUnknown').value=top.join(', ');
+  document.getElementById('reviewTwice').value=(twice.length?twice:top).join(', ');
+  document.getElementById('reviewWrongType').value=typeMap[maxType]||'多种题型都需要加强';
+  document.getElementById('reviewWrongReason').value='根据错题本自动判断：这些词需要再次听发音、朗读例句，并重做相关题型。';
+  saveSelfReview();
+}
+function clearSelfReview(){
+  if(!confirm('确定要清空自我复盘栏吗？这不会清除错题本和做题记录。')) return;
+  localStorage.removeItem(REVIEW_KEY);
+  ['reviewUnknown','reviewWrongType','reviewWrongReason','reviewTwice'].forEach(id=>{const el=document.getElementById(id); if(el) el.value='';});
+  ['reviewCheckWords','reviewCheckExamples','reviewCheckRedo'].forEach(id=>{const el=document.getElementById(id); if(el) el.checked=false;});
+  const status=document.getElementById('reviewStatus'); if(status) status.textContent='复盘栏已清空。';
+}
+function initSelfReview(){
+  restoreSelfReview();
+  ['reviewUnknown','reviewWrongType','reviewWrongReason','reviewTwice','reviewCheckWords','reviewCheckExamples','reviewCheckRedo'].forEach(id=>{
+    const el=document.getElementById(id); if(el){ el.addEventListener('input',saveSelfReview); el.addEventListener('change',saveSelfReview); }
+  });
+  document.getElementById('autoFillReview')?.addEventListener('click',autoFillSelfReview);
+  document.getElementById('saveReview')?.addEventListener('click',saveSelfReview);
+  document.getElementById('clearReview')?.addEventListener('click',clearSelfReview);
+}
+
+function initV8Practice() { setupSentenceControls(); setupQuizClickable(); addInputPractice('#fill',FILL_ANSWERS,'fill','输入填空答案'); addInputPractice('#reading',READING_ANSWERS,'reading','输入阅读找词答案'); setupDetailsSave(); document.getElementById('resetPractice')?.addEventListener('click',resetPractice); document.getElementById('checkAllBtn')?.addEventListener('click',checkAllPractice); document.getElementById('practiceMode')?.addEventListener('change',e=>{ if(e.target.value==='review') startMistakeReview(); else applyPracticeMode(e.target.value); }); document.getElementById('refreshMistakes')?.addEventListener('click',renderMistakes); document.getElementById('readMistakeWords')?.addEventListener('click',readMistakeWords); document.getElementById('readMistakeExamples')?.addEventListener('click',readMistakeExamples); document.getElementById('clearMistakes')?.addEventListener('click',clearMistakes); document.getElementById('reviewMistakesBtn')?.addEventListener('click',startMistakeReview); renderMistakes(); initSelfReview(); }
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initV8Practice); else initV8Practice();
